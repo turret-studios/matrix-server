@@ -8,7 +8,6 @@ application service api: r0.1.2
 identity service api: r0.3.0
 push gateway api: r0.1.1
 ## configuring
-to configure your server, copy `config.json.example` to a file called `config.json`. read through the config file and set your configuration.
+to configure your server, copy `config.yml.example` to a file called `config.yml`. read through the config file and set your configuration.
 ## updating
-when updating, if the config.version has incremented by only a decimal, then a change in the config.json is not required.
-otherwise, updating the config.json file is required and the server will fail to start without the necessary changes. view config changelog for more information
+when updating, keep in mind that the config specifications may update. a config update is required when the config version has incremented by a full whole number
