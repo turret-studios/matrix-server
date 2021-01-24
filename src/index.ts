@@ -10,10 +10,10 @@ const configVersion = 1
 global.version = "build 0"
 
 colors.setTheme({
-    success: ["green"],
-    error: ["white", "bgRed", "bold"],
-    warn: ["yellow"],
-    audit: ["white", "bgBlue"],
+	success: ["green"],
+	error: ["white", "bgRed", "bold"],
+	warn: ["yellow"],
+	audit: ["white", "bgBlue"],
 });
 
 declare global {
@@ -44,13 +44,13 @@ if(Math.floor(global.CFG.configVersion) < Math.floor(configVersion)){
 	console.error(`[matrix-server.main] FATAL ERROR: config too up to date (expected version ${configVersion}, got ${CFG.configVersion})`.error)
 	process.exit()
 } else if (global.CFG.configVersion < configVersion){
-	console.warn(`[matrix-server.main] WARN       : config out of date, using defaults (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
+	console.warn(`[matrix-server.main] WARN : config out of date, using defaults (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
 	process.exit()
 } else if (global.CFG.configVersion > configVersion){
-	console.warn(`[matrix-server.main] WARN       : config too up to date (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
+	console.warn(`[matrix-server.main] WARN : config too up to date (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
 	process.exit()
 } else {
-	console.log(`[matrix-server.main] SUCCESS    : config v${configVersion} loaded!`.success)
+	console.log(`[matrix-server.main] SUCCESS : config v${configVersion} loaded!`.success)
 }
 
 let expressApp = express.default()
@@ -58,7 +58,7 @@ expressApp.use(cors())
 expressApp.use((req, res, next) => {
 	res.set('Cache-Control', 'no-store')
 	next()
-  })
+})
 
 let files = fs.readdirSync(`${__dirname}/req`)
 for (const key in files) {
@@ -66,9 +66,9 @@ for (const key in files) {
 		const element: any = files[key];
 		try{
 			require(__dirname+"/req/"+element).default(expressApp)
-			console.log(`[matrix-server.main] SUCCESS    : loaded ${element}`.success)
+			console.log(`[matrix-server.main] SUCCESS : loaded ${element}`.success)
 		}catch(err){
-			console.error(`[matrix-server.main] ERROR      : failed to load file ${element} (${err.message})`)
+			console.error(`[matrix-server.main] ERROR : failed to load file ${element} (${err.message})`)
 		}
 	}
 }
@@ -94,7 +94,7 @@ if(CFG.tlsEnabled === true){
 			key: key,
 			cert: cert
 		}, expressApp).listen(CFG.serverPort, () => {
-			console.log(`[matrix-server.main] SUCCESS    : listening for connections on port ${CFG.serverPort} with TLS!`.success)
+			console.log(`[matrix-server.main] SUCCESS : listening for connections on port ${CFG.serverPort} with TLS!`.success)
 		});
 	}catch(err){
 		console.error(`[matrix-server.main] FATAL ERROR: TLS certificate/key pair verification failed`.error)
@@ -102,6 +102,6 @@ if(CFG.tlsEnabled === true){
 	}
 }else{
 	expressApp.listen(CFG.serverPort, () => {
-		console.log(`[matrix-server.main] SUCCESS    : listening for connections on port ${CFG.serverPort} without TLS!`.success)
+		console.log(`[matrix-server.main] SUCCESS : listening for connections on port ${CFG.serverPort} without TLS!`.success)
 	});
 }
