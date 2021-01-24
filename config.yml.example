@@ -39,8 +39,8 @@ server_name: "example.com"
 # instance, if using certbot, use `fullchain.pem` as your certificate,
 # not `cert.pem`).
 #
-#tlsKeyPath: /etc/letsencrypt/live/example.com/privkey.pem
+#tlsCertPath: /etc/letsencrypt/live/example.com/fullchain.pem
 
 # PEM-encoded private key for TLS
 #
-#tlsCertPath: /etc/letsencrypt/live/example.com/fullchain.pem
+#tlsKeyPath: /etc/letsencrypt/live/example.com/privkey.pem
