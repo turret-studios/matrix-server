@@ -43,10 +43,10 @@ if(Math.floor(global.CFG.configVersion) < Math.floor(configVersion)){
 	console.error(`[matrix-server.main] FATAL ERROR: config too up to date (expected version ${configVersion}, got ${CFG.configVersion})`.error)
 	process.exit()
 } else if (global.CFG.configVersion < configVersion){
-	console.error(`[matrix-server.main] WARN       : config out of date, using defaults (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
+	console.warn(`[matrix-server.main] WARN       : config out of date, using defaults (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
 	process.exit()
 } else if (global.CFG.configVersion > configVersion){
-	console.error(`[matrix-server.main] WARN       : config too up to date (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
+	console.warn(`[matrix-server.main] WARN       : config too up to date (expected version ${configVersion}, got ${CFG.configVersion})`.warn)
 	process.exit()
 } else {
 	console.log(`[matrix-server.main] SUCCESS    : config v${configVersion} loaded!`.success)
