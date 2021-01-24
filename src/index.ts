@@ -4,6 +4,7 @@ import * as fs from "fs";
 import * as https from "https";
 import * as crypto from "crypto";
 import YAML from "yaml";
+const cors = require("cors");
 
 const configVersion = 1
 global.version = "build 0"
@@ -53,6 +54,11 @@ if(Math.floor(global.CFG.configVersion) < Math.floor(configVersion)){
 }
 
 let expressApp = express.default()
+expressApp.use(cors())
+expressApp.use((req, res, next) => {
+	res.set('Cache-Control', 'no-store')
+	next()
+  })
 
 let files = fs.readdirSync(`${__dirname}/req`)
 for (const key in files) {
