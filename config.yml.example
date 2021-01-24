@@ -44,3 +44,9 @@ server_name: "example.com"
 # PEM-encoded private key for TLS
 #
 #tlsKeyPath: /etc/letsencrypt/live/example.com/privkey.pem
+
+##### Password-Based Authentication #####
+
+# If password-based authentication is enabled
+#
+password_auth: true
