@@ -50,3 +50,16 @@ server_name: "example.com"
 # If password-based authentication is enabled
 #
 password_auth: true
+
+##### Database Settings #####
+
+# Database driver: only currently implemented one is
+# sqlite
+#
+db_driver: "sqlite"
+
+# Database Location (sqlite)
+# Ignored if db_driver isn't sqlite
+# The location of the database file to read&write to
+#
+db_location: "~/matrix-server/database.db"
