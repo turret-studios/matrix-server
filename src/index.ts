@@ -54,9 +54,11 @@ if(Math.floor(global.CFG.configVersion) < Math.floor(configVersion)){
 }
 
 let expressApp = express.default()
-expressApp.use(cors())
 expressApp.use((req, res, next) => {
 	res.set('Cache-Control', 'no-store')
+	res.set('Access-Control-Allow-Origin', '')
+	res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+	res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
 	next()
 })
 
