@@ -4,7 +4,6 @@ import * as fs from "fs";
 import * as https from "https";
 import * as crypto from "crypto";
 import YAML from "yaml";
-const cors = require("cors");
 
 const configVersion = 1
 global.version = "build 0"
